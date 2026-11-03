@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KeyControl - Controle de Chaves</title>
+
+    <!-- Conexão com o CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Key<span>Control</span></h1>
+        <p>Controle inteligente de chaves</p>
+    </header>
+
+    <main class="container">
+
+        <section class="subtitulo">
+            <h2>Painel de controle</h2>
+            <p>Gerencie retiradas e devoluções de chaves.</p>
+        </section>
+
+        <!-- PAINEL DE INDICADORES -->
+
+        <section class="painel">
+
+            <div class="card">
+                <p>Total de chaves</p>
+                <h2 class="azul" id="total">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Chaves disponíveis</p>
+                <h2 class="verde" id="disponiveis">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Chaves emprestadas</p>
+                <h2 class="laranja" id="emprestadas">0</h2>
+            </div>
+
+        </section>
+
+        <section class="conteudo">
+
+            <!-- FORMULÁRIO DE MOVIMENTAÇÃO -->
+
+            <div class="secao">
+
+                <h3>Movimentação de chave</h3>
+
+                <label for="usuario">Nome do responsável</label>
+
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Digite seu nome"
+                >
+
+                <label for="codigo">Código da chave</label>
+
+                <select id="codigo">
+                    <option value="">Selecione uma chave</option>
+                </select>
+
+                <div class="aviso" id="aviso">
+                    Selecione uma chave para verificar sua situação.
+                </div>
+
+                <button
+                    class="btn-principal"
+                    onclick="movimentarChave()"
+                >
+                    Registrar movimentação
+                </button>
+
+                <div class="historico">
+
+                    <h3>Últimas movimentações</h3>
+
+                    <div id="historico">
+                        <p class="vazio">
+                            Nenhuma movimentação registrada.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- LISTA DE CHAVES -->
+
+            <div class="secao">
+
+                <h3>Chaves cadastradas</h3>
+
+                <button
+                    class="btn-cadastro"
+                    onclick="cadastrarChave()"
+                >
+                    + Cadastrar chave
+                </button>
+
+                <input
+                    class="pesquisa"
+                    type="text"
+                    id="pesquisa"
+                    placeholder="Pesquisar chave..."
+                    oninput="renderizarChaves()"
+                >
+
+                <div class="tabela">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Identificação</th>
+                                <th>Responsável</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaChaves"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Conexão com o JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+
